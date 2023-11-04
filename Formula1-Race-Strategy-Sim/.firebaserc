@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "fionn-fyp-formula1": {
+      "hosting": {
+        "app": [
+          "fionn-fyp-formula1"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "fionn-fyp-formula1"
+  }
+}
