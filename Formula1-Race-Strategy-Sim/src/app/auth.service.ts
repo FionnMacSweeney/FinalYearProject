@@ -11,7 +11,7 @@ export class AuthService {
   async signUp(email: string, password: string): Promise<any> {
     try {
       const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
-      // Additional logic for when a user has successfully signed up (e.g., sending verification email)
+      
       return result;
     } catch (error) {
       console.error('Signup error', error);

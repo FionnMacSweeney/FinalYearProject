@@ -24,3 +24,41 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+.login-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px; 
+    img {
+      max-width: 150px;  
+    }
+  }
+  
+  .form-container {
+    max-width: 400px; 
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  ion-content {
+    --background: none; // remove default background
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  ion-item {
+    --padding-start: 0; // to ensure full width input borders
+    margin-bottom: 10px;
+  }
+  
+  ion-button {
+    margin-top: 20px; // space between form fields and button
+  }
+  
