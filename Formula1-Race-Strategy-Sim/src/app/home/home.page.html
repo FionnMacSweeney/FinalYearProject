@@ -6,15 +6,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<!-- home.page.html -->
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let constructor of constructors">
+      <ion-label>
+        <h2>{{ constructor.name }}</h2>
+        <p>Nationality: {{ constructor.nationality }}</p>
+      </ion-label>
+      <ion-button slot="end" (click)="onTeamSelect(constructor.id)">
+        Select
+      </ion-button>
+    </ion-item>
+  </ion-list>
 </ion-content>

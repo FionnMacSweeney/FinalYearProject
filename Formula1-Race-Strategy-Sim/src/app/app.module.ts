@@ -6,6 +6,7 @@ import { RouteReuseStrategy } from '@angular/router';
 // AngularFire imports
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { HttpClientModule } from '@angular/common/http'
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
@@ -31,7 +32,8 @@ const firebaseConfig = {
     IonicModule.forRoot(), 
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig), // Initialize AngularFire with firebaseConfig
-    AngularFireAuthModule, // Import the AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpClientModule, // Import the AngularFireAuthModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
