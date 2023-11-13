@@ -16,15 +16,22 @@ export class DriversPage implements OnInit {
 
   constructor(private route: ActivatedRoute, private dataService: DataService) {}
 
+  
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      this.teamId = params['teamId'];
-      
-      this.dataService.getDrivers(this.teamId).subscribe(data => {
-        this.drivers = data;
-      });
+      if (params['constructorId']) {
+        this.dataService.getDriversForTeam(params['constructorId']).subscribe(drivers => {
+          this.drivers = drivers;
+          console.log("team recieved");
+        });
+      } else {
+        console.log('No constructorId provided');
+      }
     });
   }
+  
+
+  
 
  /* onDriverSelect(driverId: string) {
     console.log('Selected driver:', driverId);

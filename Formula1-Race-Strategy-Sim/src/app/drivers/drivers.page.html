@@ -5,19 +5,15 @@
   </ion-toolbar>
 </ion-header>
 
+<!-- In drivers.page.html -->
 <ion-content>
-  <!-- Check if there are drivers to display -->
-  <ng-container *ngIf="drivers && drivers.length > 0; else noDrivers">
-    <ion-list>
-      <!-- Iterate over each driver and display their information -->
-      <ion-item *ngFor="let driver of drivers">
-        <ion-label>
-          <h2>{{ driver.name }}</h2>
-          <!-- Add other driver details you want to display -->
-        </ion-label>
-      </ion-item>
-    </ion-list>
-  </ng-container>
+  <ion-list>
+    <ion-item *ngFor="let driver of drivers">
+      {{ driver.givenName }} {{ driver.familyName }}
+    </ion-item>
+  </ion-list>
+
+
 
   <!-- Displayed if there are no drivers -->
   <ng-template #noDrivers>

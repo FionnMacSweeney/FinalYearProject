@@ -7,15 +7,20 @@ const app = express();
 const cors = require('cors');
 app.use(cors());
 
-// Route to get driver information
-app.get('/api/drivers', async (req, res) => {
+// In your Express server file (e.g., server.js)
+
+app.get('/api/teams/:constructorId/drivers', async (req, res) => {
+  const constructorId = req.params.constructorId;
   try {
-    const response = await axios.get('http://ergast.com/api/f1/2023/drivers.json');
-    res.json(response.data.MRData.DriverTable.Drivers);
+    const response = await axios.get(`http://ergast.com/api/f1/2023/constructors/${constructorId}/drivers.json`);
+    const drivers = response.data.MRData.DriverTable.Drivers;
+    res.json(drivers);
   } catch (error) {
-    res.status(500).send(error.toString());
+    res.status(500).json({ message: 'Error fetching drivers', error: error });
   }
 });
+
+
 
 // Route to get constructor (team) information
 app.get('/api/constructors', async (req, res) => {

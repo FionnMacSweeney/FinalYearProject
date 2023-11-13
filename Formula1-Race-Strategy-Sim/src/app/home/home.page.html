@@ -9,14 +9,9 @@
 <!-- home.page.html -->
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let constructor of constructors">
-      <ion-label>
-        <h2>{{ constructor.name }}</h2>
-        <p>Nationality: {{ constructor.nationality }}</p>
-      </ion-label>
-      <ion-button slot="end" (click)="onTeamSelect(constructor.id)">
-        Select
-      </ion-button>
+    <ion-item *ngFor="let constructor of constructors" (click)="onTeamSelect(constructor.constructorId)">
+      {{ constructor.name }}
     </ion-item>
+    
   </ion-list>
 </ion-content>

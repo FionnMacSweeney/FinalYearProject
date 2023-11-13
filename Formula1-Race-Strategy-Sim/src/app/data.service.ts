@@ -17,6 +17,12 @@ export class DataService {
   getDrivers(teamId: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/teams/${teamId}/drivers`);
   }
+
+ 
+  getDriversForTeam(constructorId: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/teams/${constructorId}/drivers`);
+  }
+
   
 
   // ... other methods
