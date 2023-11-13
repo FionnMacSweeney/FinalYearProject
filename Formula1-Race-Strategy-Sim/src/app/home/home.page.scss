@@ -25,3 +25,32 @@
 #container a {
   text-decoration: none;
 }
+
+ion-card img {
+  width: 100%; /* Set image width to cover the card width */
+  height: 250px; /* Set a fixed height */
+  object-fit: contain; /* This will ensure that images cover the area without stretching */
+}
+
+ion-card {
+  width: 20%;
+  height: 300px; /* Example fixed height */
+  display: flex;
+  flex-direction: column;
+}
+
+ion-card-content {
+  flex-grow: 1; /* This makes the content area flexible */
+}
+
+/* home.page.scss */
+
+@media (max-width: 600px) {
+  ion-card img {
+    height: 100px; /* Smaller height for smaller screens */
+  }
+  
+  ion-card {
+    height: 250px; /* Smaller card height for smaller screens */
+  }
+}
