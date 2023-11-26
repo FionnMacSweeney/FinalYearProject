@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -14,7 +14,7 @@ export class DriversPage implements OnInit {
   teamId!: string;
   drivers: any[] = [];
 
-  constructor(private route: ActivatedRoute, private dataService: DataService) {}
+  constructor(private route: ActivatedRoute, private dataService: DataService, private router: Router) {}
 
   
   ngOnInit() {
@@ -33,10 +33,17 @@ export class DriversPage implements OnInit {
 
   
 
- /* onDriverSelect(driverId: string) {
+  onDriverSelect(driverId: string) {
     console.log('Selected driver:', driverId);
-   
-  }*/
+  
+    // local storage
+    localStorage.setItem('selectedTeam', this.teamId);
+    localStorage.setItem('selectedDriver', driverId);
+  
+    // Navigate to the tracks page
+    this.router.navigate(['/tracks']);
+  }
+  
 
   fetchDrivers() {
     this.dataService.getDrivers(this.teamId).subscribe(data => {

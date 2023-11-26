@@ -31,13 +31,12 @@ export class HomePage implements OnInit {
     });
   }
 
-  
 
-  
   onTeamSelect(constructorId: string) {
-    console.log("Selected team constructorId:", constructorId); // Log the constructorId
+    console.log("Selected team constructorId:", constructorId);
     this.router.navigate(['/drivers'], { queryParams: { constructorId: constructorId } });
   }
+
   
 
 

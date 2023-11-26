@@ -32,6 +32,16 @@ app.get('/api/constructors', async (req, res) => {
   }
 });
 
+//route to get current circuits
+app.get('/api/circuits', async (req, res) => {
+  try {
+    const response = await axios.get('https://ergast.com/api/f1/current/circuits.json');
+    res.json(response.data);
+  } catch (error) {
+    res.status(500).send(error.toString());
+  }
+});
+
 // Route to get pit stops data for a specific race
 app.get('/api/races/:raceId/pitstops', async (req, res) => {
   try {

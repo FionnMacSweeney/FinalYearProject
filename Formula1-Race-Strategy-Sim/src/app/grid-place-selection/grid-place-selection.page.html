@@ -1,0 +1,15 @@
+<!-- grid-place-selection.page.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Select Grid Position</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Grid Position</ion-label>
+    <ion-select [(ngModel)]="selectedGridPosition" (ionChange)="onGridPositionSelect()">
+      <ion-select-option *ngFor="let position of gridPositions" [value]="position">{{ position }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-content>

@@ -1,0 +1,14 @@
+<!-- tyre-selection.page.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Select Tyre Compound</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let tyre of tyreCompounds" (click)="onTyreSelect(tyre)">
+      <ion-label>{{ tyre }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

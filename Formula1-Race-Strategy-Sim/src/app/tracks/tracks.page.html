@@ -1,0 +1,19 @@
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" *ngFor="let circuit of circuits" (click)="onTrackSelect(circuit.circuitName)">
+        <ion-card>
+          <!-- images -->
+          <img [src]="" *ngIf="" alt="{{ circuit.circuitName }}"/>
+          <ion-card-header>
+            <ion-card-title>{{ circuit.circuitName }}</ion-card-title>
+            <p>{{ circuit.Location.locality }}, {{ circuit.Location.country }}</p>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+
