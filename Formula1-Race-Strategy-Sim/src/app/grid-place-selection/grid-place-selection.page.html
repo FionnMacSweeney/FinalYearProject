@@ -9,7 +9,8 @@
   <ion-item>
     <ion-label>Grid Position</ion-label>
     <ion-select [(ngModel)]="selectedGridPosition" (ionChange)="onGridPositionSelect()">
-      <ion-select-option *ngFor="let position of gridPositions" [value]="position">{{ position }}</ion-select-option>
+      <ion-select-option *ngFor="let position of gridPositions" [value]="position">{{ position }}</ion-select-option>     
     </ion-select>
   </ion-item>
+  <ion-button>Start Simulation</ion-button>
 </ion-content>

@@ -19,6 +19,10 @@ const routes: Routes = [
   {
     path: 'grid-place-selection',
     loadChildren: () => import('./grid-place-selection/grid-place-selection.module').then( m => m.GridPlaceSelectionPageModule)
+  },
+  {
+    path: 'race-simulation',
+    loadChildren: () => import('./race-simulation/race-simulation.module').then( m => m.RaceSimulationPageModule)
   }
 
   

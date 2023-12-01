@@ -7,7 +7,7 @@ const app = express();
 const cors = require('cors');
 app.use(cors());
 
-// In your Express server file (e.g., server.js)
+
 
 app.get('/api/teams/:constructorId/drivers', async (req, res) => {
   const constructorId = req.params.constructorId;
@@ -63,6 +63,17 @@ app.get('/api/races/:raceId/laps/:lap', async (req, res) => {
     res.status(500).send(error.toString());
   }
 });
+
+// fetch start pos, status, points, result
+async function fetchDriverData(year) {
+  try {
+    const response = await axios.get(`https://ergast.com/api/f1/${year}/results.json`);
+    return response.data.MRData.RaceTable.Races;
+  } catch (error) {
+    console.error('Error fetching driver data:', error);
+    throw error;
+  }
+}
 
 // Define the port and start the server
 const PORT = process.env.PORT || 3000;
