@@ -43,7 +43,7 @@ ion-card-content {
   flex-grow: 1; /* This makes the content area flexible */
 }
 
-/* home.page.scss */
+
 
 @media (max-width: 600px) {
   ion-card img {
@@ -53,4 +53,10 @@ ion-card-content {
   ion-card {
     height: 250px; /* Smaller card height for smaller screens */
   }
+}
+
+
+.team-rating {
+  background-color: neon;
+  font-size: 14px;
 }

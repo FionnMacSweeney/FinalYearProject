@@ -1,21 +1,27 @@
+<!-- home.page.html -->
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Teams
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-grid>
-    <!-- ... -->
-    <ion-col *ngFor="let constructor of constructors">
-      <ion-card [routerLink]="['/drivers']" [queryParams]="{ constructorId: constructor.constructorId }">
-        <img [src]="constructor.imageUrl" alt="{{ constructor.name }} logo"/>
-        <!-- ... -->
-      </ion-card>
-    </ion-col>
-    <!-- ... -->
+    <ion-row>
+      <ion-col size="20" *ngFor="let constructor of constructors">
+        <ion-card [routerLink]="['/drivers']" [queryParams]="{ constructorId: constructor.constructorId }">
+          <img [src]="constructor.imageUrl" alt="{{ constructor.name }} logo"/>
+          <ion-card-content>
+            <ion-card-title>
+              {{ constructor.name }}
+              <ion-badge *ngIf="constructor.rating" class="team-rating">{{ constructor.rating }}</ion-badge>
+            </ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 </ion-content>
 

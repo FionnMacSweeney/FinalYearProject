@@ -23,6 +23,14 @@ const routes: Routes = [
   {
     path: 'race-simulation',
     loadChildren: () => import('./race-simulation/race-simulation.module').then( m => m.RaceSimulationPageModule)
+  },
+  {
+    path: 'starting-positions',
+    loadChildren: () => import('./starting-positions/starting-positions.module').then( m => m.StartingPositionsPageModule)
+  },
+  {
+    path: 'race-results',
+    loadChildren: () => import('./race-results/race-results.module').then( m => m.RaceResultsPageModule)
   }
 
   

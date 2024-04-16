@@ -17,7 +17,7 @@ export class TyreSelectionPage implements OnInit {
   onTyreSelect(tyre: string) {
     console.log('Selected Tyre:', tyre);
     localStorage.setItem('selectedTyreCompound', tyre);
-    this.router.navigate(['/grid-place-selection']);
+    this.router.navigate(['/starting-positions']);
   }
 
 }

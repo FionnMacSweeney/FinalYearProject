@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Race Results</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let result of raceResults; let i = index">
+      <ion-label>
+        {{ i + 1 }}. {{ result.driverName }} - {{ result.position }}
+
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+

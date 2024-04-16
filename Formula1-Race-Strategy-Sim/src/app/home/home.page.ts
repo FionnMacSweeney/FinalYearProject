@@ -1,3 +1,4 @@
+// home.page.ts
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
@@ -7,9 +8,8 @@ interface Constructor {
   name: string;
   nationality: string;
   imageUrl?: string;
-  // other properties that your constructor objects have
+  rating?: number; // Add this to include the team rating
 }
-
 
 @Component({
   selector: 'app-home',
@@ -27,18 +27,24 @@ export class HomePage implements OnInit {
         ...constructor,
         imageUrl: `./assets/images/${constructor.constructorId}.png`
       }));
-      console.log('Constructors with images:', this.constructors);
+
+      // Fetch team ratings and merge with constructor data
+      this.dataService.getTeamRatings().subscribe((ratings: {[key: string]: number}) => {
+        this.constructors = this.constructors.map(constructor => ({
+          ...constructor,
+          rating: ratings[constructor.constructorId] // Assumes ratings is an object with constructorId as keys
+        }));
+      });
+
+      console.log('Constructors with images and ratings:', this.constructors);
     });
   }
-
 
   onTeamSelect(constructorId: string) {
     console.log("Selected team constructorId:", constructorId);
     this.router.navigate(['/drivers'], { queryParams: { constructorId: constructorId } });
   }
 
-  
-
-
   // ... other methods
 }
+

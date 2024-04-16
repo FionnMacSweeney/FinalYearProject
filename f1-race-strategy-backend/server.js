@@ -1,11 +1,47 @@
  
 const express = require('express');
 const axios = require('axios');
+const { exec } = require('child_process');
+const cors = require('cors');
+
 const app = express();
+const { PythonShell } = require('python-shell');
+
+
+app.use(express.json()); // for parsing application/json
 
 // Enable CORS for client-side
 const cors = require('cors');
 app.use(cors());
+
+
+const { exec } = require('child_process');
+
+const scriptPath = "C:\\Repos\\FYP\\FinalYearProject\\Formula1-Race-Strategy-Sim\\backend scripts\\calculate_performance.py";
+
+// New route to start the simulation
+app.post('/api/start-simulation', (req, res) => {
+ 
+  // Use double backslashes in the path for Windows
+  const scriptPath = "C:\\Repos\\FYP\\FinalYearProject\\Formula1-Race-Strategy-Sim\\backend scripts\\race_simulation.py";
+  
+  // If passing arguments to your Python script, add them after scriptPath
+  exec(`python "${scriptPath}"`, (error, stdout, stderr) => {
+      if (error) {
+          console.error(`exec error: ${error}`);
+          return res.status(500).json({ message: 'Failed to start the simulation', error: stderr });
+      }
+      
+      try {
+          const results = JSON.parse(stdout);
+          res.json(results);
+      } catch (parseError) {
+          res.status(500).json({ message: 'Failed to parse simulation results', error: parseError });
+      }
+  });
+});
+
+
 
 
 
@@ -74,6 +110,25 @@ async function fetchDriverData(year) {
     throw error;
   }
 }
+
+// Route to get team ratings
+app.get('/api/team-ratings', (req, res) => {
+  exec(`python "${scriptPath}" ratings`, (error, stdout, stderr) => {
+      if (error) {
+          console.error(`exec error: ${error}`);
+          return res.status(500).json({ message: 'Failed to execute the ratings calculation script', error: stderr });
+      }
+      try {
+          const results = JSON.parse(stdout);
+          
+          const teamRatings = results.teamRatings;
+          res.json(teamRatings);
+      } catch (parseError) {
+          console.error('Failed to parse the script output:', parseError);
+          res.status(500).json({ message: 'Failed to parse the ratings data', error: parseError });
+      }
+  });
+});
 
 // Define the port and start the server
 const PORT = process.env.PORT || 3000;

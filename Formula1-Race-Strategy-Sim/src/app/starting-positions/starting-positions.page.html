@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Starting Positions</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToRaceResults()">Go to Race Results</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let position of startingPositions">
+      <ion-label>
+        {{ position.position }}. {{ position.driverName }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+

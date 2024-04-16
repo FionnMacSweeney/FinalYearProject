@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Select Weather</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-radio-group [(ngModel)]="selectedWeather">
+      <ion-list-header>
+        <ion-label>Weather Conditions</ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Very Hot</ion-label>
+        <ion-radio slot="start" value="veryHot"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Mild</ion-label>
+        <ion-radio slot="start" value="mild"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Wet</ion-label>
+        <ion-radio slot="start" value="wet"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+  <ion-button expand="block" (click)="submitWeather()">Next</ion-button>
+</ion-content>
