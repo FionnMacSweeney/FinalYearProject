@@ -10,7 +10,7 @@ import { SimulationResponse, StartingPosition } from '../simulation-response.int
   styleUrls: ['./starting-positions.page.scss'],
 })
 export class StartingPositionsPage implements OnInit {
-  startingPositions: StartingPosition[] = []; // Now expecting an array of strings
+  startingPositions: StartingPosition[] = [];
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -26,14 +26,19 @@ export class StartingPositionsPage implements OnInit {
     this.http.post<SimulationResponse>('http://localhost:3000/api/start-simulation', simulationParams)
       .subscribe({
         next: (response) => {
-          // Save the entire simulation response to local storage for later use
-          localStorage.setItem('simulationData', JSON.stringify(response));
+          console.log('Received simulation response:', response);  // Debugging line to check the response structure
+          if (response.lapResults && response.lapResults.length > 0 && response.lapResults[0].positions) {
+            localStorage.setItem('lapResults', JSON.stringify(response.lapResults));
+            localStorage.setItem('finalPositions', JSON.stringify(response.finalPositions));
 
-          // Map only the starting positions for display
-          this.startingPositions = response.startingPositions.map((driverName, index) => ({
-            position: index + 1,
-            driverName: driverName,
-          }));
+            // Correctly mapping over positions if they exist and are in the expected format
+            this.startingPositions = response.lapResults[0].positions.map((positionDetail, index) => ({
+              position: index + 1,  // Use 1-based indexing for display
+              driverName: positionDetail.driver_id, // Assuming you have a mechanism to translate driver_id to a driver's name
+            }));
+          } else {
+            console.error('Unexpected response structure:', response);
+          }
         },
         error: (error) => {
           console.error('Failed to fetch starting positions:', error);
@@ -42,12 +47,11 @@ export class StartingPositionsPage implements OnInit {
   }
 
   goToRaceResults() {
-    // Save the race results to local storage or a service if not already done
-    // Then navigate to the race results page
     this.router.navigateByUrl('/race-results');
   }
-  
 }
+
+
 
 
 
