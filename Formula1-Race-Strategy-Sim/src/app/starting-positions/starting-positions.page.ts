@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { SimulationResponse, StartingPosition } from '../simulation-response.interface';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+
 
 @Component({
   selector: 'app-starting-positions',
@@ -12,7 +15,13 @@ import { SimulationResponse, StartingPosition } from '../simulation-response.int
 export class StartingPositionsPage implements OnInit {
   startingPositions: StartingPosition[] = [];
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private firestore: AngularFirestore,
+    private auth: AngularFireAuth
+  ) {}
+  
 
   ngOnInit() {
     this.fetchStartingPositions();

@@ -1,0 +1,60 @@
+/* menu.component.scss */
+.hero-section {
+    text-align: center;
+    margin-top: 60px;
+  
+    h1 {
+      font-size: 2.5em;
+      color: #2193b0;
+      margin-bottom: 0.5em;
+    }
+  
+    p {
+      font-size: 1.2em;
+      color: #6dd5ed;
+      margin-bottom: 2em;
+    }
+  }
+  
+  .centered-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 200px); // Adjusted height to accommodate the hero section
+    padding: 20px;
+    background: linear-gradient(135deg, #e3f2fd 0%, #fff 100%);
+  }
+  
+  ion-button.custom-button {
+    margin-bottom: 20px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #6dd5ed 0%, #2193b0 100%);
+    box-shadow: 0 4px 14px rgba(33, 147, 176, 0.4);
+    border-radius: 12px;
+    color: white;
+    text-transform: none;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  
+    &:hover {
+      box-shadow: 0 6px 16px rgba(33, 147, 176, 0.5);
+    }
+  
+    &.begin-simulation:hover {
+      background: #3cba54; // Green color on hover for Begin Simulation button
+    }
+  
+    &.sign-out {
+      background: #ff7e67;
+      transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  
+      &:hover {
+        background: #ff3b2f; // Red color on hover for Sign Out button
+      }
+  
+      &:active {
+        background: darken(#ff7e67, 5%);
+      }
+    }
+  }
+  

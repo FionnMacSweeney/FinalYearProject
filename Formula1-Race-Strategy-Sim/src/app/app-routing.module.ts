@@ -6,7 +6,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule) },
   { path: 'signup', loadChildren: () => import('./signup/signup.module').then(m => m.SignupPageModule) },
-  { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomePageModule), canActivate: [AuthGuard] },
+  { path: 'menu', loadChildren: () => import('./menu/menu.module').then(m => m.MenuModule), canActivate: [AuthGuard] },
+  { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomePageModule) },
   { path: 'drivers', loadChildren: () => import('./drivers/drivers.module').then(m => m.DriversPageModule) },
   {
     path: 'tracks',

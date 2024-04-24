@@ -26,8 +26,8 @@ export class LoginPage implements OnInit {
     try {
       const result = await this.authService.login(this.email, this.password);
       console.log(result);
-      // Navigate to the home page after successful login
-      this.router.navigateByUrl('/home');
+      // Navigate to the menu page after successful login
+      this.router.navigateByUrl('/menu');
     } catch (error) {
       console.error(error);
       // Show error message for invalid login details
