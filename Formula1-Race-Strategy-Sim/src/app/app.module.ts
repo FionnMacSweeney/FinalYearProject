@@ -6,6 +6,7 @@ import { RouteReuseStrategy } from '@angular/router';
 // AngularFire imports
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
 import { HttpClientModule } from '@angular/common/http'
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
