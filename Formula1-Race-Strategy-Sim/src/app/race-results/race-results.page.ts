@@ -32,7 +32,7 @@ export class RaceResultsPage implements OnInit, OnDestroy {
   }
 
   startDisplayingLaps() {
-    this.displayInterval = interval(1500)
+    this.displayInterval = interval(1000)
       .pipe(
         startWith(0),
         switchMap(() => {

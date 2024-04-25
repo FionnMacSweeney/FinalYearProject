@@ -99,11 +99,11 @@ if __name__ == "__main__":
     starting_positions = determine_starting_positions(driver_ratings, team_ratings)
     race_details = simulate_race(starting_positions, driver_ratings, team_ratings, weather_condition)
 
-    # Ensure the output keys exactly match those expected by the frontend
+    #output keys
     output = {
         "startingPositions": starting_positions,
-        "lapResults": race_details['lap_results'],  # Ensure this key matches the frontend expectation
-        "finalPositions": race_details['final_positions']  # Ensure this key matches the frontend expectation
+        "lapResults": race_details['lap_results'],  
+        "finalPositions": race_details['final_positions']  
     }
 
     # Print the JSON output with proper formatting for better readability
