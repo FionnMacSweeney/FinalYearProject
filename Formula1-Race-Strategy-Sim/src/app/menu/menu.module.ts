@@ -5,7 +5,7 @@ import { MenuRoutingModule } from './menu-routing.module';
 import { MenuComponent } from './menu.component'; 
 
 @NgModule({
-  declarations: [MenuComponent], // Declare MenuComponent here
+  declarations: [MenuComponent], 
   imports: [
     CommonModule,
     IonicModule, 

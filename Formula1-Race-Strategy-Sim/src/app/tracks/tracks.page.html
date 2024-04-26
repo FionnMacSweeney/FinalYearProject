@@ -4,7 +4,6 @@
     <ion-row>
       <ion-col size="12" size-md="6" *ngFor="let circuit of circuits" (click)="onTrackSelect(circuit.circuitName)">
         <ion-card>
-          <!-- images -->
           <img [src]="" *ngIf="" alt="{{ circuit.circuitName }}"/>
           <ion-card-header>
             <ion-card-title>{{ circuit.circuitName }}</ion-card-title>

@@ -8,7 +8,7 @@ interface Constructor {
   name: string;
   nationality: string;
   imageUrl?: string;
-  rating?: number; // Add this to include the team rating
+  rating?: number; 
 }
 
 @Component({
@@ -32,7 +32,7 @@ export class HomePage implements OnInit {
       this.dataService.getTeamRatings().subscribe((ratings: {[key: string]: number}) => {
         this.constructors = this.constructors.map(constructor => ({
           ...constructor,
-          rating: ratings[constructor.constructorId] // Assumes ratings is an object with constructorId as keys
+          rating: ratings[constructor.constructorId] 
         }));
       });
 
@@ -45,6 +45,6 @@ export class HomePage implements OnInit {
     this.router.navigate(['/drivers'], { queryParams: { constructorId: constructorId } });
   }
 
-  // ... other methods
+  
 }
 

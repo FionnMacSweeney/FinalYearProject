@@ -1,5 +1,3 @@
-// src/app/previous-results/previous-results.module.ts
-// src/app/previous-results/previous-results.module.ts
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';  // Import IonicModule
@@ -10,7 +8,7 @@ import { PreviousResultsComponent } from './previous-results.component';
   declarations: [PreviousResultsComponent],
   imports: [
     CommonModule,
-    IonicModule,  // Add IonicModule here
+    IonicModule,  
     PreviousResultsRoutingModule
   ]
 })

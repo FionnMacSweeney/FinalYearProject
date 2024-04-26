@@ -18,7 +18,6 @@ export class GridPlaceSelectionPage implements OnInit {
   onGridPositionSelect() {
     console.log('Selected Grid Position:', this.selectedGridPosition);
     localStorage.setItem('selectedGridPosition', this.selectedGridPosition.toString());
-    // Assuming you navigate to the simulation start on this action
     this.startRaceSimulation();
   }
 
@@ -37,11 +36,9 @@ export class GridPlaceSelectionPage implements OnInit {
 
   private collectSimulationData(): any {
     // Collect and return data needed for simulation
-    // Here collect all necessary data for the simulation
-    // For now just the grid position.
     return {
       gridPosition: this.selectedGridPosition,
-      // Add other data
+      
     };
   }
 }

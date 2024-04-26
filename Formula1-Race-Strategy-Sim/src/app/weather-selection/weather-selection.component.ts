@@ -13,7 +13,7 @@ export class WeatherSelectionPage {
 
   submitWeather() {
     localStorage.setItem('selectedWeather', this.selectedWeather);
-    // Navigate to the next page, e.g., tyre selection or directly to the simulation page
+    // Navigate to the next page
     this.router.navigateByUrl('/tyre-selection'); 
   }
 }

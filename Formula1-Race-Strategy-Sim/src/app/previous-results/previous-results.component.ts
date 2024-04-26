@@ -19,7 +19,6 @@ import { of } from 'rxjs'; // Import the 'of' operator from rxjs
 export class PreviousResultsComponent implements OnInit {
   previousResults: Observable<any[]> = of([]); // Initialize with an empty Observable
 
-  // Constructor remains the same
   constructor(
     private firestore: AngularFirestore,
     private afAuth: AngularFireAuth

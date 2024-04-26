@@ -43,7 +43,7 @@ export class StartingPositionsPage implements OnInit {
             // Correctly mapping over positions if they exist and are in the expected format
             this.startingPositions = response.lapResults[0].positions.map((positionDetail, index) => ({
               position: index + 1, // Use 1-based indexing for display
-              driverName: positionDetail.driver_id, // Assuming you have a mechanism to translate driver_id to a driver's name
+              driverName: positionDetail.driver_id, 
             }));
 
             // Save final positions to Firebase
@@ -66,7 +66,7 @@ export class StartingPositionsPage implements OnInit {
         this.firestore.collection('finalPositions').add({
           userId: user.uid,
           finalPositions: finalPositions,
-          timestamp: firebase.firestore.FieldValue.serverTimestamp() // Here's the change.
+          timestamp: firebase.firestore.FieldValue.serverTimestamp() 
         })
         .then(() => console.log('Final positions saved to Firestore.'))
         .catch(error => console.error('Error saving to Firestore:', error));

@@ -14,7 +14,6 @@
           <ion-card-subtitle>{{ result.timestamp.toDate() | date: 'medium' }}</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content *ngIf="result.showDetails">
-          <!-- Use keyvalue pipe if finalPositions is an object -->
           <div *ngFor="let item of result.finalPositions | keyvalue">
             {{ item.key }}: {{ item.value }}
           </div>
